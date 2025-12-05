@@ -175,12 +175,12 @@ function showQuizEnd() {
     const percentage = (correctCount / totalAnswered) * 100;
     const roundedPercentage = Math.round(percentage);
     
-    let resultTitle = 'お疲れ様でした！';
-    let resultMessage = 'またの挑戦をお待ちしています。';
+    let resultTitle = 'お疲れ様でしたｗｗ';
+    let resultMessage = 'またの挑戦をお待ちしていますｗｗ';
     let commentClass = 'end-basic';
 
     if (roundedPercentage === 100) {
-        resultTitle = '🎉 満点達成！お見事！ 🎉';
+        resultTitle = '🎉 満点達成！YDP授与！ 🎉';
         resultMessage = '歴史総合の知識は完璧です！';
         commentClass = 'end-perfect';
     } else if (roundedPercentage >= 80) {
@@ -188,7 +188,7 @@ function showQuizEnd() {
         resultMessage = 'あと少しで満点！次は全問正解を目指しましょう。';
         commentClass = 'end-great';
     } else if (roundedPercentage >= 50) {
-        resultTitle = '👍 半分以上正解です！ 👍';
+        resultTitle = '👍 半分以上正解です！ 👍　半分だけだけど！';
         resultMessage = 'この調子で弱点を克服していきましょう！';
         commentClass = 'end-good';
     }

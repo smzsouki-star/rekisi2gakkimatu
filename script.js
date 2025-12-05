@@ -188,7 +188,7 @@ function showQuizEnd() {
         resultMessage = 'あと少しで満点！次は全問正解を目指しましょう。';
         commentClass = 'end-great';
     } else if (roundedPercentage >= 50) {
-        resultTitle = '👍 半分以上正解です！ 👍　半分だけだけど！';
+        resultTitle = '👍 半分以上正解です！ 👍　半分だけだけど！！';
         resultMessage = 'この調子で弱点を克服していきましょう！';
         commentClass = 'end-good';
     }

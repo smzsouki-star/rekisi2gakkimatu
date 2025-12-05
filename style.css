@@ -1,0 +1,194 @@
+/* ==========================================================
+// 1. 全体設定と基本レイアウト
+// ========================================================== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8; /* 薄い背景色 */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 画面上部から配置 */
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 20px;
+}
+
+#quiz-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* 影を強化 */
+    width: 100%;
+    max-width: 750px; /* 初期より少し広めに設定 */
+    padding: 30px 40px;
+}
+
+h1 {
+    text-align: center;
+    color: #1e3a8a;
+    font-size: 2.5em; /* 見出しを大きく */
+    margin-bottom: 30px;
+    border-bottom: 4px solid #3b82f6;
+    padding-bottom: 10px;
+}
+
+/* ==========================================================
+// 2. 問題と選択肢
+// ========================================================== */
+#question-number {
+    font-size: 1.6em;
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+#question-text {
+    /* 💡 問題文を大きく、読みやすく修正 */
+    font-size: 1.8em; 
+    font-weight: 600;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.option-button {
+    display: block;
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 15px;
+    background-color: #e3f2fd; /* 薄い青 */
+    border: 1px solid #90caf9;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1.3em; /* 選択肢の文字も大きく */
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.option-button:hover:not(:disabled) {
+    background-color: #bbdefb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.option-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+/* ==========================================================
+// 3. 解答と解説エリア
+// ========================================================== */
+#explanation-area {
+    margin-top: 40px;
+    padding: 30px;
+    border-left: 6px solid #f97316; /* オレンジのライン */
+    background-color: #fff7ed;
+    border-radius: 8px;
+    transition: opacity 0.5s ease;
+}
+
+.explanation-header {
+    font-size: 1.8em;
+    color: #f97316;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+#result-message {
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-size: 1.4em; /* 結果メッセージを大きく */
+}
+
+#correct-answer {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin-bottom: 15px;
+    color: #047857;
+}
+
+#explanation-text {
+    /* 💡 解説本文を大きく修正 */
+    font-size: 1.25em; 
+    padding: 15px 0;
+    border-top: 1px dashed #ccc;
+    white-space: pre-wrap;
+    line-height: 1.7;
+}
+
+/* 正解・不正解のスタイル */
+.correct {
+    background-color: #d1fae5 !important;
+    border-color: #059669 !important;
+    color: #065f46 !important;
+}
+.incorrect {
+    background-color: #fee2e2 !important;
+    border-color: #dc2626 !important;
+    color: #991b1b !important;
+}
+
+.next-question-button {
+    background-color: #10b981; /* 緑系のボタン */
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    margin-top: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.2s;
+}
+.next-question-button:hover {
+    background-color: #059669;
+}
+
+/* ==========================================================
+// 4. リザルト画面
+// ========================================================== */
+#result-screen {
+    text-align: center;
+    padding: 50px 30px;
+    margin-top: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* 正答率ごとの背景 */
+.end-basic { background: #e0f2fe; border: 3px solid #7dd3fc; }
+.end-good { background: #fef3c7; border: 3px solid #fcd34d; }
+.end-great { background: #d1fae5; border: 3px solid #34d399; }
+.end-perfect { 
+    background: linear-gradient(135deg, #ff7e5f, #feb47b); /* 満点グラデーション */
+    border: 5px solid #ff4081; 
+    color: white; 
+}
+
+.result-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    margin-bottom: 25px;
+}
+.score-percentage {
+    font-size: 5em;
+    font-weight: 900;
+    color: #f97316;
+    margin: 10px 0;
+}
+.end-perfect .score-percentage {
+    color: #fff;
+}
+.restart-button {
+    background-color: #ef4444 !important; /* 赤系 */
+    color: white !important;
+    padding: 15px 40px !important;
+    margin-top: 35px !important;
+    border-radius: 50px !important; 
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+.restart-button:hover {
+    background-color: #dc2626 !important;
+}
